@@ -1,27 +1,59 @@
-# High level overview
+# URL Shortener API
+This project implements a URL shortening service. It provides the functionality to shorten a given URL and retrieve the original URL from the shortened URL.
 
-We have created a simple application that comprises a backend app built in Java with Spring Webflux.
+In this project, we use a unique approach to URL shortening by encoding the URL into a compact string using base62 encoding.
 
-The purpose of the app is to create shortened versions of URLs. For example, given the url `https://github.com/VivyTeam/url-shortener-be-test`, the backend application would create a short url such as `http://localhost:9000/41e515a91a72`.
+The base62 encoding scheme is an efficient way to convert a long URL into a smaller string representation while still preserving the unique properties of the original URL.
 
-The application has two endpoints, detailed below:
+By using base62 encoding, we are able to produce shortened URLs that are more memorable, easily shareable and take up less space than traditional URL shortening techniques.
+## Getting started
+The following instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
+### Prerequisites
+You will need to have the following installed on your machine:
+
+Java 8 or later
+
+Gradle 4.10.2 or later
+
+### Running the tests
+The tests can be run using the following command:
 ```
-GET /{urlToBeShortened}/short # Shorten the given URL
-GET /{shortenedUrl}/full # Returns the full URL given the shortened version
+./gradlew test
 ```
+## API
+The API provides three endpoints for URL shortening and retrieval:
 
-# Your task
+### Shorten a URL
+````
+GET /{url}/short
+````
+Shortens the given URL and returns the shortened URL.
 
-- Fork the repository
-- Implement the logic to shorten a URL
-- Implement the logic to get the full URL given a shortened one
-- Bonus: implement a new endpoint that redirects the request to the full version of the shortened URL, like
-  ```
-  GET /{shortenedUrl} # Redirects the request to the full version of the shortened URL
-  ```
-- Share your repository with us
+### Get the original URL
+````
+GET /{shortenedUrl}/full
+````
+Retrieves the original URL from the shortened URL.
 
-# Ports
+### Redirect to the original URL
+````
+GET /{shortenedUrl}
+````
+Redirects to the original URL.
 
-Backend default port: `9000`
+## Built with
+Java - Programming language
+
+Gradle - Build tool
+
+Spring Boot - Application framework
+
+Reactor - Reactive programming library
+
+## Authors
+Vivy Team - Initial work
+
+Amir N Ziksari
+## License
+This project is licensed under the MIT License - see the LICENSE.md file for details.

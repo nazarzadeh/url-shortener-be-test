@@ -1,20 +1,49 @@
 package com.github.vivyteam.url.api.contract;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
+@Entity
 public class ShortenedUrl {
-    private String url;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String fullUrl;
+
+    @Transient
+    private String shortenedUrl;
 
     public ShortenedUrl() {
     }
 
-    public ShortenedUrl(String url) {
-        this.url = url;
+    public Long getId() {
+        return id;
     }
 
-    public String getUrl() {
-        return url;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public String getShortenedUrl() {
+        return shortenedUrl;
+    }
+
+    public void setShortenedUrl(String shortenedUrl) {
+        this.shortenedUrl = shortenedUrl;
+    }
+
+    public String getFullUrl() {
+        return fullUrl;
+    }
+
+    public void setFullUrl(String fullUrl) {
+        this.fullUrl = fullUrl;
     }
 }

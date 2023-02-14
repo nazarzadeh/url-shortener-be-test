@@ -1,0 +1,5 @@
+GET localhost:9000/exampled.com/short
+###
+GET localhost:9000/b
+###
+GET localhost:9000/b/full
