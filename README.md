@@ -55,5 +55,3 @@ Reactor - Reactive programming library
 Vivy Team - Initial work
 
 Amir N Ziksari
-## License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
